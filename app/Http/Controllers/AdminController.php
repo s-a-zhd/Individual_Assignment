@@ -52,5 +52,17 @@ class AdminController extends Controller
 
     }
 
+    public function deleteUser ($id){
+
+      $user=DB::table('registration')->where('id',$id)->first();
+      return view('Admin.deleteUser',compact('user'));
+    }
+
+    public function userDelete ($id){
+
+        $user=DB::table('registration')->where('id',$id)->delete();
+       
+        return redirect()->route('userlist');
+    }
 
 }

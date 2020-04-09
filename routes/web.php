@@ -27,3 +27,5 @@ Route::post('/registration', 'AdminController@user_reg') -> name('user_registrat
 Route::get('/Dashboard', 'AdminController@index')->name('dashboard'); 
 
 Route::get('/userlist', 'AdminController@userlist')->name('userlist');
+Route::get('/delete/user/{id}','AdminController@deleteUser');
+Route::post('/delete/user/{id}','AdminController@userDelete');

@@ -47,16 +47,16 @@
                         </thead>
                         <tbody>
                            
-                            @foreach($list as $row) 
+                            @foreach($list  as $user) 
                                 
                             <tr>
-                                <td>{{ $row->id }}</td>
-                                <td>{{ $row->name }}</td>
-                                <td>{{ $row->email }}</td>
-                                <td>{{ $row->phone }} </td>
-                                <td>{{ $row->gender }}</td>
-                                <td> {{ $row->role }}</td>
-                                <td> {{ $row->address }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }} </td>
+                                <td>{{ $user->gender }}</td>
+                                <td> {{ $user->role }}</td>
+                                <td> {{ $user->address }}</td>
                                   
                                
                                 <td class="text-right">
@@ -64,7 +64,7 @@
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href=""><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            <a class="dropdown-item" href="{{ URL::to('delete/user/'.$user->id) }}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
