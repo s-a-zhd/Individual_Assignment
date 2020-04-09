@@ -63,8 +63,8 @@
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href=""><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="{{ URL::to('delete/user/'.$user->id) }}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            <a class="dropdown-item" href="{{ URL::to('edit/user/'.$user->id) }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                            <a class="dropdown-item" id="delete" href="{{ URL::to('delete/user/'.$user->id) }}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

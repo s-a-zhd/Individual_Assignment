@@ -5,12 +5,12 @@
     <div class="content">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <h4 class="page-title">Delete User</h4>
+                <h4 class="page-title">Edit User</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <form method="POST" action="{{ URL::to('delete/user/'.$user->id) }}">
+                <form method="POST" action="{{ URL::to('edit/user/'.$user->id) }}">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -26,8 +26,8 @@
                        
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Name <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="name" value="{{ $user->email }}">
+                                    <label>Email <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" name="email" value="{{ $user->email }}">
                                 </div>
                             </div>
                        
@@ -89,8 +89,17 @@
                         </div>
 
                         <div class="m-t-20 text-center">
-                            <button class="btn btn-primary submit-btn">Delete User</button>
+                            <button class="btn btn-primary submit-btn">Edit User</button>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                     @endif
                     </div>
                    
            
