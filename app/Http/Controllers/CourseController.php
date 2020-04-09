@@ -105,6 +105,8 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course=DB::table('course')->where('id',$id)->delete();
+       
+        return redirect('/course');
     }
 }

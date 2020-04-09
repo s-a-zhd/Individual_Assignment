@@ -61,7 +61,14 @@
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="{{ URL::to('edit/course/'.$course->id) }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" id="delete" href="{{ URL::to('delete/course/'.$course->id) }}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                           <form action="{{url('course/'.$course->id) }}" method="POST" id="del">
+                                           @csrf
+                                           @method('DELETE')
+                                        <!--   <a class="dropdown-item" id=""><i class="fa fa-trash-o m-r-5"></i> Delete</a> !--> 
+                                        <button type="submit" class="dropdown-item" id=""><i class="fa fa-trash m-r-5"></i>Delete</button>
+                                        
+                                       
+                                        </form>
                                         </div>
                                     </div>
                                 </td>
@@ -76,5 +83,8 @@
     </div>
   
 </div>
+
+
     
 @endsection
+
