@@ -30,3 +30,6 @@ Route::get('/userlist', 'AdminController@userlist')->name('userlist');
 Route::get('/delete/user/{id}','AdminController@deleteUser');
 Route::get('/edit/user/{id}','AdminController@userUpdate');
 Route::post('/edit/user/{id}','AdminController@userEdit');
+
+
+Route::resource('course', 'CourseController');
