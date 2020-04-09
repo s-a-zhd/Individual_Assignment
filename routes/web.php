@@ -19,3 +19,9 @@ Route::get('/', function () {
 
 Route::get('/login', 'LoginController@index') -> name('login');
 Route::post('/login', 'LoginController@verify');
+
+Route::get('/registration', 'AdminController@registration') -> name('registration');
+Route::post('/registration', 'AdminController@user_reg') -> name('user_registration');
+
+
+Route::get('/Dashboard', 'AdminController@index')->name('dashboard'); 

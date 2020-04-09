@@ -23,7 +23,7 @@ class LoginController extends Controller
         $password = $req ->password;
         $role = $req->role;
 
-        $user = DB::table('users')
+        $user = DB::table('registration')
                 ->where('email',$email)
                 ->where('password',$password)
                 ->where('role',$role)
