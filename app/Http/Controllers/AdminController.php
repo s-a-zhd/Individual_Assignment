@@ -46,5 +46,11 @@ class AdminController extends Controller
             }
     }
 
+    public function userlist (Request $request){
+        $list=DB::table('registration')->get();
+    	return view('Admin.userlist',compact('list'));
+
+    }
+
 
 }

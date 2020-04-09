@@ -92,7 +92,7 @@
                             <a href="{{ route('registration') }}"><i class="fa fa-user-md"></i> <span>Registration</span></a>
                         </li>
                         <li>
-                            <a href="/patients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                            <a href="{{ route ('userlist') }}"><i class="fa fa-wheelchair"></i> <span>User list</span></a>
                         </li>
                         <li>
                             <a href="/appointment"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
