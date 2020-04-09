@@ -77,7 +77,7 @@
                             <a href="{{ route ('userlist') }}"><i class="fa fa-wheelchair"></i> <span>User list</span></a>
                         </li>
                         <li>
-                            <a href="{{ url('course') }}"><i class="fa fa-calendar"></i> <span>Corse</span></a>
+                            <a href="{{ url('course') }}"><i class="fa fa-calendar"></i> <span>Course</span></a>
                         </li>
                        
                         <li>

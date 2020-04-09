@@ -60,7 +60,7 @@
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{ URL::to('edit/course/'.$course->id) }}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                            <a class="dropdown-item" href="{{ route('course.edit',$course->id)}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                                            <form action="{{url('course/'.$course->id) }}" method="POST" id="del">
                                            @csrf
                                            @method('DELETE')

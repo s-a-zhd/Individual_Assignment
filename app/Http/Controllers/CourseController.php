@@ -82,7 +82,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course=DB::table('course')->where('id',$id)->first();
+        return view('editcourse',compact('course'));
     }
 
     /**
@@ -92,9 +93,29 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $validatedData = $req->validate([
+            'name' => 'required',
+            'desc' => 'required',
+            'department' => 'required',
+            'status' => 'required',
+            
+            ]);
+
+            $data=array();
+            $data['c_name']=$req->name;
+            $data['c_description']=$req->desc;
+            $data['c_dept']=$req->department;
+            $data['status']=$req->status;
+
+            $course=DB::table('course')->where('id',$id)->update($data);
+
+            if($course){
+                return redirect('/course');
+            }
+
+            
     }
 
     /**
@@ -107,6 +128,6 @@ class CourseController extends Controller
     {
         $course=DB::table('course')->where('id',$id)->delete();
        
-        return redirect('/course');
+        return view('allcourse');
     }
 }
