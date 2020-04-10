@@ -12,18 +12,18 @@
                 <a href="{{ route('registration') }}" class="btn btn-primary float-right btn-rounded"><i class="fa fa-plus"></i> Add User</a>
             </div>
         </div>
-        <form action="" method="POST">
+        <form action="" method="">
         <div class="row filter-row">
            
             <div class="col-sm-6 col-md-3">
                 <div class="form-group form-focus">
                     <label class="focus-label">User Name / Id </label>
-                    <input type="text" class="form-control floating" name="search">
+                    <input type="text" class="form-control floating" name="search" id="search">
                 </div>
             </div>
            
             <div class="col-sm-6 col-md-3">
-               <button formaction="/employee/search" class="btn btn-success btn-block">Search</button>
+               <button formaction="" class="btn btn-success btn-block">Search</button>
             </div>
         </div>
         </form>
@@ -79,5 +79,25 @@
     </div>
   
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#search').on('keyup',function(){
+    $value=$(this).val();
+    console.log($value);
+    $.ajax({
+    type : 'get',
+    url : '{{route('search')}}',
+    data:{'search':$value},
+    success:function(data){
+      console.log(data);
+    $('tbody').html(data);
+    }
+    });
+    })
+    </script>
+    <script type="text/javascript">
+    $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
+    
     
 @endsection
