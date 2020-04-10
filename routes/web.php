@@ -36,3 +36,6 @@ Route::resource('course', 'CourseController');
 
 Route::get('/note', 'NoteController@index')->name('note');
 Route::post('/note', 'NoteController@uploadNote')->name('note');
+
+Route::get('/notice', 'NoticeController@index')->name('notice');
+Route::post('/notice', 'NoticeController@uploadNotice')->name('notice');
