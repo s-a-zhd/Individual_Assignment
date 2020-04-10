@@ -33,3 +33,6 @@ Route::post('/edit/user/{id}','AdminController@userEdit');
 
 
 Route::resource('course', 'CourseController');
+
+Route::get('/note', 'NoteController@index')->name('note');
+Route::post('/note', 'NoteController@uploadNote')->name('note');

@@ -53,9 +53,13 @@ class CourseController extends Controller
             
             
             $course=DB::table('course')->insert($data);
+            $notification=array(
+                'messege'=>'Successfully Course Inserted',
+                'alert-type'=>'success'
+                 );
            
             if($course){
-                return redirect('/course');
+                return redirect('/course')->with($notification);
             }
 
             else{
@@ -110,9 +114,13 @@ class CourseController extends Controller
             $data['status']=$req->status;
 
             $course=DB::table('course')->where('id',$id)->update($data);
+            $notification=array(
+                'messege'=>'Successfully Course Updated',
+                'alert-type'=>'success'
+                 );
 
             if($course){
-                return redirect('/course');
+                return redirect('/course')->with($notification);
             }
 
             
