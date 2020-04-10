@@ -37,8 +37,15 @@ class AdminController extends Controller
             
             $user=DB::table('registration')->insert($data);
            
+           
             if($user){
-                return Redirect()->back();
+                $notification=array(
+                    'messege'=>'Successfully Registered ',
+                    'alert-type'=>'success'
+                     );
+        
+                
+                return redirect()->back()->with($notification);
             }
 
             else{
@@ -55,8 +62,13 @@ class AdminController extends Controller
     public function deleteUser ($id){
         
         $user=DB::table('registration')->where('id',$id)->delete();
+        $notification=array(
+            'messege'=>'Successfully Deleted ',
+            'alert-type'=>'success'
+             );
+
        
-        return redirect()->route('userlist');
+        return redirect()->route('userlist')->with($notification);
         
 
     //   $user=DB::table('registration')->where('id',$id)->first();
@@ -92,7 +104,12 @@ class AdminController extends Controller
             $user=DB::table('registration')->where('id',$id)->update($data);
 
             if($user){
-                return redirect()->route('userlist');
+                $notification=array(
+                    'messege'=>'Successfully Updated ',
+                    'alert-type'=>'success'
+                     );
+        
+                return redirect()->route('userlist')->with($notification);
             }
 
        

@@ -92,6 +92,10 @@
                             <a href="{{ route('notice') }}"><i class="fa fa-hospital-o"></i> <span>Notice Upload</span></a>
                         </li>
 
+                        <li>
+                            <a href="{{ route('result') }}"><i class="fa fa-hospital-o"></i> <span>Result </span></a>
+                        </li>
+
 						<li class="submenu">
 							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">

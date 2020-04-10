@@ -41,3 +41,6 @@ Route::get('/notice', 'NoticeController@index')->name('notice');
 Route::post('/notice', 'NoticeController@uploadNotice')->name('notice');
 
 Route::get('/search','SearchController@search')->name('search');
+Route::get('/result','ResultController@result')->name('result');
+Route::get('/result/upload/student/{id}','ResultController@result_upload');
+Route::post('/result/upload/student/{id}','ResultController@upload');
