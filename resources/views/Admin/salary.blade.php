@@ -72,7 +72,7 @@
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{URL::to('/result/upload/student/'.$user->id) }}"><i class="fa fa-pencil m-r-5"></i> Upload Result</a>
+                                            <a class="dropdown-item" href="{{URL::to('edit_salary/'.$user->id) }}"><i class="fa fa-pencil m-r-5"></i> Edit Salary</a>
                                             
                                         </div>
                                     </div>

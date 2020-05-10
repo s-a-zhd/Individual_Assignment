@@ -49,4 +49,7 @@ Route::post('/result/upload/student/{id}','ResultController@upload');
 Route::get('/salary','Salary@index')->name('salary');
 Route::get('/add_salary','Salary@add_salary')->name('add_salary');
 Route::post('/add_salary','Salary@insert_salary')->name('insert_salary');
+Route::get('/edit_salary/{id}','Salary@edit_salary')->name('edit_salary');
+Route::post('/edit_salary/{id}','Salary@update_salary');
+
 
