@@ -99,8 +99,8 @@
 						<li class="submenu">
 							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="/employee">Employees List</a></li>
-								<li><a href="/employee/leave">Leaves</a></li>
+								<li><a href="{{ route('salary') }}">Salary</a></li>
+								
 								
 							</ul>
 						</li>

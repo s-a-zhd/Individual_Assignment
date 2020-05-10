@@ -49,10 +49,12 @@ class ResultController extends Controller
             $user=DB::table('result')->insert($data);
 
             $notification=array(
-                'messege'=>'Successfully Notice Uploaded',
+                'messege'=>'Successfully result Uploaded',
                 'alert-type'=>'success'
                  );
              return redirect()->back()->with($notification);    
     }
+
+   
 //
 }

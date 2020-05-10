@@ -44,3 +44,9 @@ Route::get('/search','SearchController@search')->name('search');
 Route::get('/result','ResultController@result')->name('result');
 Route::get('/result/upload/student/{id}','ResultController@result_upload');
 Route::post('/result/upload/student/{id}','ResultController@upload');
+
+
+Route::get('/salary','Salary@index')->name('salary');
+Route::get('/add_salary','Salary@add_salary')->name('add_salary');
+Route::post('/add_salary','Salary@insert_salary')->name('insert_salary');
+
