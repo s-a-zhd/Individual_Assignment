@@ -21,41 +21,24 @@ class LoginController extends Controller
 
         $email = $req ->email;
         $password = $req ->password;
-        $role = $req->role;
-
-        $user = DB::table('registration')
+       
+        $user = DB::table('users')
                 ->where('email',$email)
                 ->where('password',$password)
-                ->where('role',$role)
+                
                 ->first();
 
         if ($user !=null){
-            if ($user->role == "Admin"){
+           
                 $notification=array(
                     'messege'=>'Successfully Logged in',
                     'alert-type'=>'success'
                      );
                 $req->session()->put('email' , $email);
-                return view('Admin.dashboard')->with ($notification);;
-            }
+                return redirect('/dashboard');
+            
 
-            elseif ($user->role == "Teacher"){
-                $notification=array(
-                    'messege'=>'Successfully Logged in',
-                    'alert-type'=>'success'
-                     );
-                $req->session()->put('email' , $email);
-                return view('teacher.dashboard')->with ($notification);
-            }
-
-            elseif ($user->role == "Student"){
-                $notification=array(
-                    'messege'=>'Successfully Logged in',
-                    'alert-type'=>'success'
-                     );
-                $req->session()->put('email' , $email);
-                return view('student.dashboard')->with ($notification);
-            }
+        
 
 
            

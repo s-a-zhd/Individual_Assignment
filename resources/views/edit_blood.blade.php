@@ -5,68 +5,84 @@
     <div class="content">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <h4 class="page-title">Add Course</h4>
+                <h4 class="page-title">Update blood</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <form method="POST" action="{{ url('course') }}">
+                <form method="POST" action="{{ route('blood.update',$list->id)}} " enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
+
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Course Name <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="name">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                           
-                        </div>
-                        
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Course Descrription <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="desc">
+                                <label>Id <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="id" value="{{ $list->id }}" readonly>
                             </div>
                         </div>
 
                         <div class="col-sm-6">
-                           
+
                         </div>
-                       
-                        
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Department</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="department">
-                                </div>
+                                <label>Group <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="group" value="{{ $list->group }}" readonly>
                             </div>
                         </div>
-                       
-                        
-                        
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Quantity <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="quantity" value="{{ $list->quantity }}">
+                            </div>
+                        </div>
+
                         
 
-                        <div class="col-sm-6 col-md-6 col-lg-3">
+                        
+
+
+                        <div class="col-sm-6 ">
                             <div class="form-group">
                                 <label>Status</label>
+                                <select class="form-control select" name="status">
+                                    <option value="Available">Available</option>
+                                    <option value="Not Available">Not Available</option>
                                 
-                                <select class="form-control" name="status">
-                                  
-                                    <option value="Active">Active</option>
-                                    <option value="Deactive">Deactive</option>
-                                   
                                 </select>
-                                
-                               
                             </div>
                         </div>
+
+
+                       
                         
-                        <div class="m-t-20 text-center">
-                            <button class="btn btn-primary submit-btn">Create Course</button>
+                      
+
+                      
+
+                        
+
+
+
+                        
+                      
+
+
+                       
+                        
+                       
+                       
+                       
+                       
+                        
+
+                     
+
+                        <div class="col-sm-12 m-t-20 text-center">
+                            <button class="btn btn-primary submit-btn">Update Blood Bank</button>
                         </div>
-                   
                     </div>
                    
            

@@ -5,19 +5,30 @@
     <div class="content">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <h4 class="page-title">Edit Course</h4>
+                <h4 class="page-title">Edit Department</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <form method="POST" action="{{ route('course.update',$course->id)}}">
+                <form method="POST" action="{{ route('department.update',$course->id)}}">
                     @csrf
                     @method('PUT')
                     <div class="row">
+
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Course Name <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="name" value="{{ $course->c_name }}">
+                                <label>Department ID <span class="text-danger">*</span></label>
+                                <input readonly class="form-control" type="text" name="id" value="{{ $course->id }}">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                           
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Department Name <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="name" value="{{ $course->department_name }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -26,8 +37,8 @@
                         
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Course Descrription <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="desc" value="{{ $course->c_description }}">
+                                <label>Department Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" type="text" name="desc" value=""> {{ $course->department_desc }} </textarea>
                             </div>
                         </div>
 
@@ -36,36 +47,15 @@
                         </div>
                        
                         
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Department</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="department" value="{{ $course->c_dept }}">
-                                </div>
-                            </div>
-                        </div>
+                        
                        
                         
                         
                         
 
-                        <div class="col-sm-6 col-md-6 col-lg-3">
-                            <div class="form-group">
-                                <label>Status</label>
-                                
-                                <select class="form-control" name="status" value="{{ $course->status }}">
-                                  
-                                    <option value="Active">Active</option>
-                                    <option value="Deactive">Deactive</option>
-                                   
-                                </select>
-                                
-                               
-                            </div>
-                        </div>
                         
                         <div class="m-t-20 text-center">
-                            <button class="btn btn-primary submit-btn" id="update">Update Course</button>
+                            <button class="btn btn-primary submit-btn" id="update">Update Department</button>
                         </div>
                    
                     </div>

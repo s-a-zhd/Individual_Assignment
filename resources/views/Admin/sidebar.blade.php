@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('/assets/css/style.css') }}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -74,46 +76,53 @@
                         <li class="active">
                             <a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-						<li>
+						{{-- <li>
                             <a href="{{ route('registration') }}"><i class="fa fa-user-md"></i> <span>Registration</span></a>
-                        </li>
+                        </li> --}}
+                       
+
                         <li>
-                            <a href="{{ route ('userlist') }}"><i class="fa fa-wheelchair"></i> <span>User list</span></a>
+                            <a href="{{ url('doctor') }}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
+
                         <li>
-                            <a href="{{ url('course') }}"><i class="fa fa-calendar"></i> <span>Course</span></a>
+                            <a href="{{ url('patient') }}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('department') }}"><i class="fa fa-calendar"></i> <span>departments</span></a>
                         </li>
                        
                         <li>
-                            <a href="{{ route('note') }}"><i class="fa fa-hospital-o"></i> <span>Note Upload</span></a>
+                            <a href="{{ url('blood') }}"><i class="fa fa-medkit"></i> <span>Blood Bank</span></a>
                         </li>
 
                         <li>
-                            <a href="{{ route('notice') }}"><i class="fa fa-hospital-o"></i> <span>Notice Upload</span></a>
+                            <a href="{{ url ('store') }}"><i class="fa fa-certificate"></i> <span>Medicine Store</span></a>
                         </li>
+                       
 
-                        <li>
-                            <a href="{{ route('result') }}"><i class="fa fa-hospital-o"></i> <span>Result </span></a>
-                        </li>
+                        
 
+                      
 						<li class="submenu">
 							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="{{ route('salary') }}">Salary</a></li>
+								<li><a href="{{ url('employee') }}">Employee List</a></li>
 								
 								
 							</ul>
 						</li>
 						
-						<li class="submenu">
+						{{-- <li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="/receipt"> Employee Salary </a></li>
 								
 							</ul>
 						</li>
-                       
-                        
+                        --}}
+{{--                         
                         <li class="submenu">
                             <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -121,12 +130,12 @@
                                 <li><a href="/inbox">Inbox</a></li>
                                 
                             </ul>
-                        </li>
+                        </li> --}}
                        
-						<li>
+						{{-- <li>
 							<a href="/store"><i class="fa fa-cube"></i> <span>Medicine Store</span></a>
 						</li>
-						
+						 --}}
 					
                        
                         
@@ -149,6 +158,8 @@
         <script src="{{ asset ('/assets/js/Chart.bundle.js') }}"></script>
         <script src="{{ asset ('/assets/js/chart.js') }}"></script>
         <script src="{{ asset ('/assets/js/app.js') }}"></script>
+        <script src="{{ asset ('/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
@@ -178,7 +189,7 @@
       <script>  
         $(document).on("click", "#delete", function(e){
             e.preventDefault();
-            var link = $(this).attr("href");
+            var link = $(this).attr("action");
                swal({
                  title: "Are you Want to delete?",
                  text: "Once Delete, This will be Permanently Delete!",
@@ -188,7 +199,7 @@
                })
                .then((willDelete) => {
                  if (willDelete) {
-                      window.location.href = link;
+                      window.location.action = link;
                  } else {
                    swal("Safe Data!");
                  }

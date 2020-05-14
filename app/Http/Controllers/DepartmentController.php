@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 
-class CourseController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $list=DB::table('course')->get();
-    	return view('allcourse',compact('list'));
+        $list=DB::table('departments')->get();
+    	return view('departments',compact('list'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('addcourse');
+        return view('add_department');
     }
 
     /**
@@ -40,26 +40,23 @@ class CourseController extends Controller
         $validatedData = $req->validate([
             'name' => 'required',
             'desc' => 'required',
-            'department' => 'required',
-            'status' => 'required',
+            
             
             ]);
 
             $data=array();
-            $data['c_name']=$req->name;
-            $data['c_description']=$req->desc;
-            $data['c_dept']=$req->department;
-            $data['status']=$req->status;
+            $data['department_name']=$req->name;
+            $data['department_desc']=$req->desc;
             
             
-            $course=DB::table('course')->insert($data);
+            $course=DB::table('departments')->insert($data);
             $notification=array(
-                'messege'=>'Successfully Course Inserted',
+                'messege'=>'Successfully Department Inserted',
                 'alert-type'=>'success'
                  );
            
             if($course){
-                return redirect('/course')->with($notification);
+                return redirect('/department')->with($notification);
             }
 
             else{
@@ -86,8 +83,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $course=DB::table('course')->where('id',$id)->first();
-        return view('editcourse',compact('course'));
+        $course=DB::table('departments')->where('id',$id)->first();
+        return view('editdepartment',compact('course'));
     }
 
     /**
@@ -102,25 +99,23 @@ class CourseController extends Controller
         $validatedData = $req->validate([
             'name' => 'required',
             'desc' => 'required',
-            'department' => 'required',
-            'status' => 'required',
+            
             
             ]);
 
             $data=array();
-            $data['c_name']=$req->name;
-            $data['c_description']=$req->desc;
-            $data['c_dept']=$req->department;
-            $data['status']=$req->status;
+            $data['department_name']=$req->name;
+            $data['department_desc']=$req->desc;
+            
 
-            $course=DB::table('course')->where('id',$id)->update($data);
+            $course=DB::table('departments')->where('id',$id)->update($data);
             $notification=array(
                 'messege'=>'Successfully Course Updated',
                 'alert-type'=>'success'
                  );
 
             if($course){
-                return redirect('/course')->with($notification);
+                return redirect('/department')->with($notification);
             }
 
             
@@ -134,8 +129,8 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course=DB::table('course')->where('id',$id)->delete();
+        $course=DB::table('departments')->where('id',$id)->delete();
        
-        return view('allcourse');
-    }
+        return redirect('/department');
+}
 }
